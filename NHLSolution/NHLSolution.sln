@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHLSystemClassLibrary", "NHLSystemClassLibrary\NHLSystemClassLibrary.csproj", "{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E890D1A7-356D-4EAA-BC57-64A29C044649}
+	EndGlobalSection
+EndGlobal
