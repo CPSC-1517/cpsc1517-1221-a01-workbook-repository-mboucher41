@@ -64,7 +64,7 @@ namespace NHLSystemClassLibrary
             Conference = conference;
             Division = division;
         }
-        private Conference Conference { get; set; }
-        private Division Division { get; set; }
+        public Conference Conference { get; set; }
+        public Division Division { get; set; }
     }
 }

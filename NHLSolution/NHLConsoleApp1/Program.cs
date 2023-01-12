@@ -11,7 +11,7 @@ namespace NHLConsoleApp
             try
             {
                 //Create a new team Instance
-                Team currentTeam = new Team(teamName);
+                Team currentTeam = new Team(teamName, Conference.Western, Division.Pacific);
                 //Print the team name
                 Console.WriteLine($"Teamname: {currentTeam.Name}");
             }
