@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHLSystemClassLibrary", "NHLSystemClassLibrary\NHLSystemClassLibrary.csproj", "{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhlSystemClassLibrary", "NhlSystemClassLibrary\NhlSystemClassLibrary.csproj", "{EE5A451C-72DD-44CA-82B1-F411C3CD2C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHLConsoleApp", "NHLConsoleApp1\NHLConsoleApp.csproj", "{A29B8A13-9EF6-4885-8B53-63A3A6C9EE90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhlConsoleApp", "NhlConsoleApp\NhlConsoleApp.csproj", "{AC95574A-C30F-4BBB-8A9C-ADBD04AC1E03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHLSystemTestProject", "NHLSystemTestProject\NHLSystemTestProject.csproj", "{55F08B23-D2EB-45A7-B7AA-850FF9E32B53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhlSystemTestProject", "NhlSystemTestProject\NhlSystemTestProject.csproj", "{BD9AD9A5-A064-4795-8421-78933042C33C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88DAC3D5-09B0-49C0-85E6-5A6550ACE0CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A29B8A13-9EF6-4885-8B53-63A3A6C9EE90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A29B8A13-9EF6-4885-8B53-63A3A6C9EE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A29B8A13-9EF6-4885-8B53-63A3A6C9EE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A29B8A13-9EF6-4885-8B53-63A3A6C9EE90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55F08B23-D2EB-45A7-B7AA-850FF9E32B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55F08B23-D2EB-45A7-B7AA-850FF9E32B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55F08B23-D2EB-45A7-B7AA-850FF9E32B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55F08B23-D2EB-45A7-B7AA-850FF9E32B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE5A451C-72DD-44CA-82B1-F411C3CD2C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5A451C-72DD-44CA-82B1-F411C3CD2C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5A451C-72DD-44CA-82B1-F411C3CD2C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5A451C-72DD-44CA-82B1-F411C3CD2C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC95574A-C30F-4BBB-8A9C-ADBD04AC1E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC95574A-C30F-4BBB-8A9C-ADBD04AC1E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC95574A-C30F-4BBB-8A9C-ADBD04AC1E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC95574A-C30F-4BBB-8A9C-ADBD04AC1E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9AD9A5-A064-4795-8421-78933042C33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9AD9A5-A064-4795-8421-78933042C33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9AD9A5-A064-4795-8421-78933042C33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9AD9A5-A064-4795-8421-78933042C33C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E890D1A7-356D-4EAA-BC57-64A29C044649}
+		SolutionGuid = {5814BFBC-FFC3-467B-8180-F30156729D5A}
 	EndGlobalSection
 EndGlobal

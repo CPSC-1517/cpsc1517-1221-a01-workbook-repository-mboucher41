@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHLSystemClassLibrary
+namespace NhlSystemClassLibrary
 {
-    internal enum Conference
+    public enum Conference
     {
-         
+        Eastern,
+        Western
     }
 }

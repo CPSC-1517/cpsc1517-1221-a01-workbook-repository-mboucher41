@@ -1,42 +1,51 @@
-using NHLSystemClassLibrary;
+using NhlSystemClassLibrary;
 
-namespace NHLSystemTestProject
+namespace NhlSystemTestProject
 {
     [TestClass]
     public class TeamTest
     {
         [TestMethod]
-        [DataRow("Oilers")]
-        [DataRow("Flames")]
-        [DataRow("Canucks")]
-        [DataRow("Maple Leafs")]
-        [DataRow("Senators")]
-        [DataRow("Canadiens")]
-        public void Name_ValidName_NameSet(string teamName, Conference conference, Division division)
+        [DataRow("Oilers", Conference.Western, Division.Pacific)]
+        [DataRow("Flames", Conference.Western, Division.Pacific)]
+        [DataRow("Canucks", Conference.Western, Division.Pacific)]
+        [DataRow("Maple Leafs", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Senators", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Canadiens", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Jets", Conference.Western, Division.Central)]
+        public void Name_ValidName_NameSet(
+            string teamName,
+            Conference conference,
+            Division division)
         {
-            //arrange
-            //act
-            Team currentTeam = new Team(teamName);
-            //assert
+            // Arrange
+            // Act
+            Team currentTeam = new Team(teamName, conference, division);
+            // Assert
             Assert.AreEqual(teamName, currentTeam.Name);
+            Assert.AreEqual(conference, currentTeam.Conference);    
+            Assert.AreEqual(division, currentTeam.Division);
         }
 
-
         [TestMethod]
-        [DataRow(null, "Name cannot be blank.")]
-        [DataRow("", "Name cannot be blank.")]
-        [DataRow("      ", "Name cannot be blank.")]
-        public void Name_InvalidName_ThrowsArgumentNullException(string teamName, string expectedErrorMessage)
+        [DataRow("", "Name cannot be blank.", Conference.Western, Division.Pacific)]
+        [DataRow("     ", "Name cannot be blank.", Conference.Western, Division.Pacific)]
+        public void Name_InvalidName_THrowsArgumentNullException(
+            string teamName, 
+            string exceptedErrorMessage,
+            Conference conference,
+            Division divison
+            )
         {
-            //arrange and act
+            // Arrange and Act
             try
             {
-                Team currentTeam = new Team(teamName);
+                Team currentTeam = new Team(teamName, conference, divison);
                 Assert.Fail("An ArgumentNullException should have been thrown");
             }
             catch(ArgumentNullException ex)
             {
-                StringAssert.Contains(ex.Message, expectedErrorMessage);
+                StringAssert.Contains(ex.Message, exceptedErrorMessage);
             }
         }
     }

@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHLSystemClassLibrary
+namespace NhlSystemClassLibrary
 {
-    internal enum Division
+    public enum Division
     {
-        Pacid
+        Atlantic,
+        Central,
+        Metropolitan,
+        Pacific
     }
 }

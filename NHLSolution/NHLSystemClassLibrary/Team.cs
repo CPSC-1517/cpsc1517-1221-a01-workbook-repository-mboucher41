@@ -5,11 +5,11 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHLSystemClassLibrary
+namespace NhlSystemClassLibrary
 {
     public class Team
     {
-        //Define fully implemeted properties with a backing field for: name, city, arena
+        // Define fully implemented properties with a backing field for: Name, City, Arena
         private string _name;
         private string _city;
         private string _arena;
@@ -22,49 +22,26 @@ namespace NHLSystemClassLibrary
             }
             set
             {
-                //validate, not blank, letters only??
-                if (string.IsNullOrWhiteSpace(value) == true)
+                // Validate new value is not blank and contains only letters a-z
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException(nameof(value),"Name cannot be blank.");
+                    throw new ArgumentNullException(nameof(Name),"Name cannot be blank.");
                 }
-
-                _name = value.Trim(); //removes leading and trailing white spaces
+                _name = value.Trim();   // remove leading "   hello" and trailing "hello    " white spaces
             }
         }
-
-        public string City //SET UP
-        {
-            get
-            {
-                return _city;
-            }
-            set
-            {
-                _city = value;
-            }
-        }
-
-        public string Arena //SET UP
-        {
-            get
-            {
-                return _arena;
-            }
-            set
-            {
-                _arena = value;
-            }
-        }
-        //Define auto-implemented properties for: conference, division
-
-        //Greedy constructor
-        public Team(string name, Conference conference, Division division)
-        {
-            Name = name;
-            Conference = conference;
-            Division = division;
-        }
+        // Define auto-implemented properties for: Conference, Division
         public Conference Conference { get; set; }
         public Division Division { get; set; }
+
+
+        // Greedy constructor
+        public Team(string Name, Conference conference, Division division)
+        {
+            this.Name = Name;
+            Conference = conference;
+            Division = division;
+            //_name = Name;
+        }
     }
 }
