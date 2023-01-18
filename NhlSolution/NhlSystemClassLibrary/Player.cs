@@ -5,13 +5,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using NhlSystemClassLibrary;
 
 namespace NhlSystemClassLibrary
 {
-    internal class Player
+    public class Player
     {
+        const int MinPlayerNo = 1;
+        const int MaxPlayerNo = 98;
+
         private int _playerNo;
-        private string _name;
+        private string _playerName;
         private int _gamesPlayed;
         private int _goals;
         private int _assists;
@@ -23,11 +27,11 @@ namespace NhlSystemClassLibrary
             {
                 return _playerNo;
             }
-            set
+            private set
             {
-                if (value < 0 || value > 98)
+                if (value < MinPlayerNo || value > MaxPlayerNo)
                 {
-                    throw new ArgumentOutOfRangeException("Player Number cannot be less than zero or greater than 98.");
+                    throw new ArgumentException($"PlayerNo must be between {MinPlayerNo} and {MaxPlayerNo}.");
                 }
                 _playerNo = value;
             }
@@ -37,13 +41,13 @@ namespace NhlSystemClassLibrary
         {
             get
             {
-                return _name;
+                return _playerName;
             }
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException(nameof(Name), "Name cannot be blank.");
+                    throw new ArgumentNullException("Name cannot be blank.");
                 }
                 //validate for only latters a-z
                 string lettersOnlyPattern = @"^[a-zA-Z ]{1,}$";
@@ -51,21 +55,18 @@ namespace NhlSystemClassLibrary
                 {
                     throw new ArgumentException("Name can only contain letters.");
                 }
-                _name = value.Trim();
+                _playerName = value.Trim();
             }
         }
 
-        public Position Position { get; set; }
+        public Position Position { get; private set; }
 
         public int GamesPlayed
         {
-            get
+            get => _gamesPlayed;         
+            protected set
             {
-                return _gamesPlayed;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentOutOfRangeException("Games played cannot be less than 0");
                 }
@@ -75,13 +76,11 @@ namespace NhlSystemClassLibrary
 
         public int Goals
         {
-            get
+            get => _goals;
+
+            private set
             {
-                return _goals;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentOutOfRangeException("Goals cannot be less than 0");
                 }
@@ -91,47 +90,69 @@ namespace NhlSystemClassLibrary
 
         public int Assists
         {
-            get
+            get => _assists;
+
+            private set
             {
-                return _assists;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentOutOfRangeException("Assists cannot be less than 0");
                 }
                 _assists = value;
             }
         }
+
+        // public int Points => Goals + Assists;
         public int Points
         {
             get
             {
-                return _points;
-            }
-            set
-            {
-                _points = _assists + _goals;
+                return Goals + Assists;
             }
         }
 
         //Need specific methods for adding to gamesplayed, goals, assists?
-
-        public Player(int PlayerNo, string Name, Position position, int GamesPlayed, int Goals, int Assists, int Points)
+        //Why 2?
+        public Player(int playerNo, string name, Position position)
         {
-            this.PlayerNo = PlayerNo;
-            this.Name = Name;
+            PlayerNo = playerNo;
+            Name = name;
             Position = position;
-            this.GamesPlayed = GamesPlayed;
-            this.Goals = Goals;
-            this.Assists = Assists;
-            this.Points = Points;
         }
 
+        public Player(int playerNo, string name, Position position, int gamesPlayed, int goals, int assists, int points)
+        {
+            PlayerNo = playerNo;
+            Name = name;
+            Position = position;
+            GamesPlayed = gamesPlayed;
+            Goals = goals;
+            Assists = assists;
+        }
+
+        public void AddGamesPlayed()
+        {
+            GamesPlayed += 1;
+        }
+
+        public void AddGoals()
+        {
+            Goals += 1;
+        }
+
+        public void AddAssists()
+        {
+            Assists += 1;
+        }
+
+
+
+
+        /*
         public override string ToString()
         {
             return $"PlayerNo: {PlayerNo}, Name: {Name}, Position: {Position}, Games Played: {GamesPlayed}, Goals: {Goals}, Assists: {Assists}, Points: {Points}";
         }
+        */
     }
 }

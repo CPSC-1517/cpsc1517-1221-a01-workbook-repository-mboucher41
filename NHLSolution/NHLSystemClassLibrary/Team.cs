@@ -85,11 +85,32 @@ namespace NhlSystemClassLibrary
         //need to define player list property
         //public List<Player> PlayerList { get; set; }
 
+        public List<Player> players { get; private set; } //= new List<Player>();
+
+
         //need to make method for validating and adding players to the list
         //Player cannot be null
         //cannot add same player twice
         //Cannot go over list maximum (23 players per team)
-
+        public void AddPlayer(Player newPlayer)
+        {
+            if(newPlayer == null)
+            {
+                throw new ArgumentException(nameof(AddPlayer),"Player cannot be null");
+            }
+            foreach (var existingPlayer in players)
+            {
+                if (newPlayer.PlayerNo == existingPlayer.PlayerNo)
+                {
+                    throw new ArgumentException($"PlayerNo {newPlayer.PlayerNo} is already in the team.");
+                }
+                if (players.Count == 23)
+                {
+                    throw new ArgumentException("Team is full. Cannot add anymore players.");
+                }
+            }
+            players.Add(newPlayer);
+        }
 
         // Greedy constructor
         public Team(string Name, string City, string Arena, Conference conference, Division division)
@@ -99,6 +120,7 @@ namespace NhlSystemClassLibrary
             this.Arena = Arena;
             Conference = conference;
             Division = division;
+            players = new List<Player>();
             //_name = Name;
         }
 
