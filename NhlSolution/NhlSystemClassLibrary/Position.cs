@@ -11,6 +11,7 @@ namespace NhlSystemClassLibrary
         C,
         CW,
         RW,
+        LW,
         D,
         G
     }

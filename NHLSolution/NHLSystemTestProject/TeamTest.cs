@@ -1,4 +1,5 @@
 using NhlSystemClassLibrary;
+using System.ComponentModel;
 
 namespace NhlSystemTestProject
 {
@@ -28,8 +29,8 @@ namespace NhlSystemTestProject
             Assert.AreEqual(city, currentTeam.City);
             Assert.AreEqual(arena, currentTeam.Arena);
             Assert.AreEqual(conference, currentTeam.Conference);    
-            Assert.AreEqual(division, currentTeam.Division);
-        }
+            Assert.AreEqual(division, currentTeam.Division);           
+        } 
 
         [TestMethod]
         [DataRow("", "Name cannot be blank.", Conference.Western, Division.Pacific)]

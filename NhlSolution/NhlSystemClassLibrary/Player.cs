@@ -49,12 +49,6 @@ namespace NhlSystemClassLibrary
                 {
                     throw new ArgumentNullException("Name cannot be blank.");
                 }
-                //validate for only latters a-z
-                string lettersOnlyPattern = @"^[a-zA-Z ]{1,}$";
-                if (!Regex.IsMatch(value, lettersOnlyPattern))
-                {
-                    throw new ArgumentException("Name can only contain letters.");
-                }
                 _playerName = value.Trim();
             }
         }
