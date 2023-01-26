@@ -138,15 +138,5 @@ namespace NhlSystemClassLibrary
         {
             Assists += 1;
         }
-
-
-
-
-        /*
-        public override string ToString()
-        {
-            return $"PlayerNo: {PlayerNo}, Name: {Name}, Position: {Position}, Games Played: {GamesPlayed}, Goals: {Goals}, Assists: {Assists}, Points: {Points}";
-        }
-        */
     }
 }
