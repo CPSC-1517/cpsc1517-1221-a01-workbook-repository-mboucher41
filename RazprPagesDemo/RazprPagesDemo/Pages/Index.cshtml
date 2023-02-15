@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <h2 style="color: orange">Hello there form ASP.Net Razor Pages</h2>
+
+    <p style="color: mediumpurple">The current date time is: @Model.CurrentDateTime.ToString()</p>
+
+    <div style="background-color: black">
+        <h3 style="color: mediumpurple">Your lucky number is: @Model.LuckyNumber.ToString()</h3>
+    </div>
+
+
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
