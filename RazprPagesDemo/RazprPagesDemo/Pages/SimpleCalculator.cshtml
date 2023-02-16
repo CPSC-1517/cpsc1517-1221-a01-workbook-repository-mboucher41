@@ -1,0 +1,49 @@
+﻿@page
+@model RazprPagesDemo.Pages.SimpleCalculatorModel
+@{
+}
+<h1>Simple Calculator</h1>
+
+@if(Model.InfoMessage != null)
+{
+    <div class="alert alert-info">
+        @Model.InfoMessage
+    </div>
+}
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-error">
+        @Model.ErrorMessage
+    </div>
+}
+
+<form method="post">
+
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="CurrentCalculator.Num1">First Number</label>
+            <input asp-for="CurrentCalculator.Num1" />
+        </div>
+        <div class="col">
+            <label asp-for="CurrentCalculator.Num2">Second Number</label>
+            <input asp-for="CurrentCalculator.Num2" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" asp-page-handler="Add" class="btn btn-primary"> + </button>
+        </div>
+        <div class="col">
+            <button type="submit" asp-page-handler="Subtract" class="btn btn-primary"> - </button>
+        </div>
+        <div class="col">
+            <button type="submit" asp-page-handler="Multiply" class="btn btn-primary"> x </button>
+        </div>
+        <div class="col">
+            <button type="submit" asp-page-handler="Divide" class="btn btn-primary"> / </button>
+        </div>
+    </div>
+
+</form>
