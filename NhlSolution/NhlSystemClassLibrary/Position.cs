@@ -9,9 +9,8 @@ namespace NhlSystemClassLibrary
     public enum Position
     {
         C,
-        CW,
-        RW,
         LW,
+        RW,
         D,
         G
     }

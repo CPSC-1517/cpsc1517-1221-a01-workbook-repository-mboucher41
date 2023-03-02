@@ -12,8 +12,5 @@ namespace NhlSystemClassLibrary
         {
             return value >= 0;
         }
-
-
-
     }
 }

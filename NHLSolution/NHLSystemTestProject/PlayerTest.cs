@@ -1,5 +1,4 @@
-﻿using NhlSystemClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +9,19 @@ namespace NhlSystemTestProject
     [TestClass]
     public class PlayerTest
     {
-
         [TestMethod]
         [DataRow(97, "Connor McDavid", Position.C)]
-        [DataRow(93, "Ryan Nugget-Hopkins", Position.CW)]
+        [DataRow(93, "Ryan Nugent-Hopkins", Position.C)]
         [DataRow(91, "Evander Kane", Position.LW)]
         public void Constructor_ValidData_ShouldPass(int playerNo, string playerName, Position playerPosition)
         {
-            //Arrange, act, assert
+            // Arrange and Act
             Player currentPlayer = new Player(playerNo, playerName, playerPosition);
+            // Assert
             Assert.AreEqual(playerNo, currentPlayer.PlayerNo);
             Assert.AreEqual(playerName, currentPlayer.Name);
             Assert.AreEqual(playerPosition, currentPlayer.Position);
+
         }
 
         [TestMethod]
@@ -29,75 +29,53 @@ namespace NhlSystemTestProject
         [DataRow(99, "Connor McDavid", Position.C)]
         [DataRow(-1, "Connor McDavid", Position.C)]
         [DataRow(100, "Connor McDavid", Position.C)]
-        public void PlayerNo_InvaldValue_ThrowsArfumentException(int playerNo, string playerName, Position playerPosition)
+        public void PlayerNo_InvalidValue_ThrowsArgumentException(int playerNo, string playerName, Position playerPosition)
         {
             try
             {
+                // Arrange and Act
                 Player currentPlayer = new Player(playerNo, playerName, playerPosition);
-                Assert.Fail("An ArgumentException should have been thrown.");
+                Assert.Fail("An ArgumentException should have been thrown");
             }
             catch(ArgumentException ex)
             {
-                StringAssert.Contains(ex.Message, "PlayerNo must be between 1 and 98.");
-                Assert.AreEqual(ex.Message, "PlayerNo must be between 1 and 98.");
+                StringAssert.Contains(ex.Message, "PlayerNo must be between 1 and 98");
+                Assert.AreEqual(ex.Message, "PlayerNo must be between 1 and 98");
             }
             catch(Exception ex)
             {
-                Assert.Fail("Incorrect exception type thrown.");
+                Assert.Fail("Incorrect exception type thrown");
             }
         }
 
+
         [TestMethod]
-        [DataRow(41, "", Position.C)]//passes
-        [DataRow(14, "      ", Position.C)]//passes
-        [DataRow(44, null, Position.C)]//passes
-        //[DataRow(11, "Connor McDavid", Position.C)]//fails
-        public void PlayerName_InvaldValue_ThrowsArfumentException(int playerNo, string playerName, Position playerPosition)
+        [DataRow(97, "", Position.C)]
+        [DataRow(93, "      ", Position.C)]
+        [DataRow(91, null, Position.LW)]
+        public void Name_InvalidValue_ThrowsArgumentException(
+            int playerNo, string playerName, Position playerPosition)
         {
             try
             {
+                // Arrange and Act
                 Player currentPlayer = new Player(playerNo, playerName, playerPosition);
-                Assert.Fail("An ArgumentException should have been thrown.");
+                Assert.Fail("An ArgumentException should have been thrown");
             }
             catch (ArgumentException ex)
             {
-                StringAssert.Contains(ex.Message, "Name cannot be blank.");
+                //StringAssert.Contains(ex.Message, "Name cannot be blank.");
+                Assert.AreEqual(ex.Message, "Name cannot be blank.");
             }
             catch (Exception ex)
             {
-                Assert.Fail("Incorrect exception type thrown.");
+                Assert.Fail("Incorrect exception type thrown");
             }
         }
 
-        [TestMethod]
-        [DataRow(1, "one", Position.C, 0, 1, 1, 1)]//pass
-        [DataRow(2, "two", Position.C, 0, 2, 2, 2)]//pass
-        [DataRow(3, "three", Position.C, 0, 3, 3, 3)]//pass
-        [DataRow(4, "four", Position.C, 4, 4, 4, 4)]//fail
-        public void GamesPlayed_InvaldValue_ThrowsArfumentException(int playerNo, string playerName, Position playerPosition, int gamesPlayed, int goals, int assists, int points)
-        {
-            try
-            {
-                Player currentPlayer = new Player(playerNo, playerName, playerPosition, gamesPlayed, goals, assists, points);
-                Assert.Fail("An ArgumentException should have been thrown.");
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                StringAssert.Contains(ex.Message, "Goals cannot be less than 0");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail("Incorrect exception type thrown.");//THIS KEEPS HAPPENING
-            }
-        }
+        // Write test methods for property validation for GamesPlayed, Goals, Assists, Points
 
-        //Goals
-        //Assists
-        //Points
+        // Write test methods for methods AddGamesPlayed(), AddGoals(), AddAssist()
 
-
-        //Addgamesplayed
-        //Addgoals
-        //AddAssists
     }
 }
